@@ -12,14 +12,17 @@ void Task::AddTExecution(int Time1){
     TimeOfExecution=Time1;
 }
 
-void Task::AddStartMoment(int Time1){
+void Task::AddStartMoment(int TimeTerminationPreviousTask){
+    if(TimeTerminationPreviousTask>TimeOfPripare)
+        StartMoment=TimeTerminationPreviousTask;
 
-    StartMoment=Time1;
+    else
+        StartMoment=TimeOfPripare;
 }
 
-void Task::AddTermiantion(int Time1){
-
-    Termiantion=Time1;
+void Task::AddTermiantion(){
+    if(StartMoment!=0)
+        Termiantion=StartMoment+TimeOfExecution;
 }
 
 
@@ -45,6 +48,10 @@ int Task::ShowValueOfVariable(char FirstLetter){
     {
         return Termiantion;
     }
+    else if(FirstLetter=='Q')
+    {
+        return PositionInQueue;
+    }
     else
     {
     std::cout <<" Wrong choice of parametr in Task::ShowValueOfVariable";
@@ -52,4 +59,9 @@ int Task::ShowValueOfVariable(char FirstLetter){
     }
     
 
+}
+
+
+void Task::AddPosition(int position){
+    PositionInQueue=position;
 }

@@ -9,6 +9,7 @@ class Task{
     int TimeOfExecution;
     int StartMoment;
     int Termiantion;
+    int PositionInQueue;
     
 public:
     Task(){
@@ -17,13 +18,16 @@ public:
         TimeOfExecution=0;
         StartMoment=0;
         Termiantion=0;
+        PositionInQueue=0;
     }
 
     void AddTPripare(int Time1);
     void AddTExecution(int Time1);
-    void AddStartMoment(int Time1);
-    void AddTermiantion(int Time1);
+    void AddPosition(int position);
+    void AddStartMoment(int TimeTerminationPreviousTask);
+    void AddTermiantion();
     int ShowValueOfVariable(char FirstLetter);
+    
 
 };
 #endif
